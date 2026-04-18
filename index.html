@@ -16,7 +16,6 @@
             scroll-behavior: smooth;
         }
 
-        /* Header */
         header {
             background-color: #0F172A;
             color: white;
@@ -62,7 +61,6 @@
             cursor: pointer;
         }
 
-        /* Hero Banner */
         .hero {
             background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)),
             url('https://images.unsplash.com/photo-1559925393-8be0ec4767c8');
@@ -112,7 +110,6 @@
             background: rgba(255,255,255,0.1);
         }
 
-        /* Features */
         .features {
             padding: 5rem 5%;
             background: #f8fafc;
@@ -145,7 +142,6 @@
             font-size: 0.95rem;
         }
 
-        /* Equipment */
         .equipment {
             padding: 5rem 5%;
             max-width: 1200px;
@@ -192,7 +188,6 @@
             font-weight: 600;
         }
 
-        /* Services */
         .services {
             padding: 5rem 5%;
             background: #f8fafc;
@@ -219,7 +214,6 @@
             font-size: 0.95rem;
         }
 
-        /* Service Area */
         .service-area {
             padding: 5rem 5%;
             max-width: 1200px;
@@ -230,7 +224,7 @@
             flex-wrap: wrap;
             gap: 1rem;
             justify-content: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
         }
         .area-tag {
             background: #e0f2fe;
@@ -238,18 +232,19 @@
             padding: 0.75rem 1.5rem;
             border-radius: 20px;
         }
-        .map-box {
+        .map-container {
             width: 100%;
-            height: 400px;
-            background: #e2e8f0;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #64748b;
+            height: 420px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
         }
 
-        /* About */
         .about {
             padding: 5rem 5%;
             max-width: 1200px;
@@ -276,7 +271,6 @@
             border-radius: 8px;
         }
 
-        /* Quote Form */
         .quote-section {
             padding: 5rem 5%;
             background: #0F172A;
@@ -340,7 +334,6 @@
             background: #0284C7;
         }
 
-        /* Contact Info */
         .contact-info {
             padding: 3rem 5%;
             background: #f8fafc;
@@ -366,7 +359,6 @@
             color: #64748b;
         }
 
-        /* Footer */
         footer {
             background: #0F172A;
             color: white;
@@ -401,7 +393,6 @@
             font-size: 0.9rem;
         }
 
-        /* Floating Call Button */
         .floating-call {
             position: fixed;
             bottom: 2rem;
@@ -422,7 +413,6 @@
             text-decoration: none;
         }
 
-        /* Mobile Responsive */
         @media (max-width: 768px) {
             nav {
                 display: none;
@@ -543,7 +533,7 @@
 </section>
 
 <section class="service-area" id="area">
-    <h2 class="section-title">Our Service Area</h2>
+    <h2 class="section-title">Our Service Area & Location</h2>
     <div class="area-tags">
         <span class="area-tag">Phoenix, AZ 85027</span>
         <span class="area-tag">Scottsdale</span>
@@ -553,8 +543,10 @@
         <span class="area-tag">Glendale</span>
         <span class="area-tag">Paradise Valley</span>
     </div>
-    <div class="map-box">
-        Your Address: 3309 West Rose Garden Lane, Phoenix, Arizona 85027, USA
+
+    <!-- ✅ 已修复：真实谷歌地图，直接显示你的地址 -->
+    <div class="map-container">
+        <iframe src="https://maps.google.com/maps?q=3309%20West%20Rose%20Garden%20Lane,%20Phoenix,%20AZ%2085027&output=embed"></iframe>
     </div>
 </section>
 
@@ -660,7 +652,6 @@
 </div>
 
 <script>
-// Form submit alert
 const form = document.getElementById('quoteForm');
 form.addEventListener('submit', e => {
     e.preventDefault();
