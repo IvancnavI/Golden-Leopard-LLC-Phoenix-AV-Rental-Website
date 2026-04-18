@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Leopard, LLC - Phoenix Audio Visual Rental</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* Header */
+        header {
+            background-color: #0F172A;
+            color: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        nav a:hover {
+            color: #0EA5E9;
+        }
+        .quote-btn {
+            background-color: #0EA5E9;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+        .quote-btn:hover {
+            background-color: #0284C7;
+        }
+        .menu-btn {
+            display: none;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)),
+            url('https://images.unsplash.com/photo-1559925393-8be0ec4767c8');
+            background-size: cover;
+            background-position: center;
+            padding: 8rem 5%;
+            color: white;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.15rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: #0EA5E9;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .btn-primary:hover {
+            background: #0284C7;
+        }
+        .btn-outline {
+            border: 2px solid white;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* Features */
+        .features {
+            padding: 5rem 5%;
+            background: #f8fafc;
+        }
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        .feature-icon {
+            font-size: 2.5rem;
+            color: #0EA5E9;
+            margin-bottom: 1rem;
+        }
+        .feature-card h3 {
+            margin-bottom: 0.5rem;
+            color: #0F172A;
+        }
+        .feature-card p {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        /* Equipment */
+        .equipment {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: #0F172A;
+            margin-bottom: 3rem;
+        }
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+        }
+        .equip-card {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            background: white;
+        }
+        .equip-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        .equip-content {
+            padding: 2rem;
+        }
+        .equip-content h3 {
+            font-size: 1.5rem;
+            color: #0F172A;
+            margin-bottom: 1rem;
+        }
+        .equip-content ul {
+            padding-left: 1.5rem;
+            color: #64748b;
+            margin-bottom: 1.5rem;
+        }
+        .equip-content a {
+            color: #0EA5E9;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Services */
+        .services {
+            padding: 5rem 5%;
+            background: #f8fafc;
+        }
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .service-card h3 {
+            color: #0F172A;
+            margin-bottom: 1rem;
+        }
+        .service-card p {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        /* Service Area */
+        .service-area {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .area-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+        .area-tag {
+            background: #e0f2fe;
+            color: #0F172A;
+            padding: 0.75rem 1.5rem;
+            border-radius: 20px;
+        }
+        .map-box {
+            width: 100%;
+            height: 400px;
+            background: #e2e8f0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+        }
+
+        /* About */
+        .about {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+            align-items: center;
+        }
+        .about h2 {
+            font-size: 2rem;
+            color: #0F172A;
+            margin-bottom: 1.5rem;
+        }
+        .about p {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        .about img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        /* Quote Form */
+        .quote-section {
+            padding: 5rem 5%;
+            background: #0F172A;
+            color: white;
+        }
+        .quote-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .quote-container p {
+            color: #94A3B8;
+            margin-bottom: 3rem;
+        }
+        .quote-form {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            color: #0F172A;
+            text-align: left;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+        }
+        .checkbox-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .checkbox-wrap label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: normal;
+        }
+        .submit-btn {
+            width: 100%;
+            background: #0EA5E9;
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .submit-btn:hover {
+            background: #0284C7;
+        }
+
+        /* Contact Info */
+        .contact-info {
+            padding: 3rem 5%;
+            background: #f8fafc;
+        }
+        .contact-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        .contact-info h3 {
+            color: #0F172A;
+            margin-bottom: 1rem;
+        }
+        .contact-info a {
+            color: #0EA5E9;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+        .contact-info p {
+            color: #64748b;
+        }
+
+        /* Footer */
+        footer {
+            background: #0F172A;
+            color: white;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+        .footer-logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .footer-desc {
+            color: #94A3B8;
+            margin-bottom: 2rem;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .footer-links a {
+            color: #94A3B8;
+            text-decoration: none;
+        }
+        .footer-links a:hover {
+            color: #0EA5E9;
+        }
+        .copyright {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* Floating Call Button */
+        .floating-call {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 998;
+        }
+        .floating-call a {
+            width: 60px;
+            height: 60px;
+            background: #0EA5E9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 10px rgba(14, 165, 233, 0.4);
+            text-decoration: none;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+            .menu-btn {
+                display: block;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">Golden Leopard, LLC</div>
+    <button class="menu-btn">☰</button>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#equipment">Equipment</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#area">Service Area</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#quote" class="quote-btn">Get A Quote</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <h1>Phoenix Audio Visual Equipment Rental</h1>
+    <p>Professional AV Rental, Delivery & On-Site Tech Support for Events, Meetings, Weddings & Conferences in Phoenix Metro Area.</p>
+    <p>Reliable AV Rentals. On-Time Delivery. Expert Technicians.</p>
+    <div class="hero-buttons">
+        <a href="#quote" class="btn-primary">Get Instant Quote</a>
+        <a href="tel:+14805225699" class="btn-outline">Call Now: +1 (480) 522-5699</a>
+    </div>
+</section>
+
+<section class="features">
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">🎵</div>
+            <h3>Premium Audio & LED Screens</h3>
+            <p>Top-quality sound systems and high-definition LED displays for every event size.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🚚</div>
+            <h3>Free Local Delivery</h3>
+            <p>On-time delivery to Phoenix and surrounding cities—no extra fees.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">👨‍🔧</div>
+            <h3>On-Site Technicians</h3>
+            <p>Certified experts to set up, operate, and troubleshoot your AV equipment.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📅</div>
+            <h3>Flexible Rental Terms</h3>
+            <p>Same-day and next-day rental options to fit your event timeline.</p>
+        </div>
+    </div>
+</section>
+
+<section class="equipment" id="equipment">
+    <h2 class="section-title">Our Featured Equipment</h2>
+    <div class="equipment-grid">
+        <div class="equip-card">
+            <img src="https://images.unsplash.com/photo-1593720213428-28a5b9e94613" alt="Audio System">
+            <div class="equip-content">
+                <h3>Professional Audio Systems</h3>
+                <ul>
+                    <li>High-powered PA speakers</li>
+                    <li>Wireless handheld & lavalier mics</li>
+                    <li>Amplifiers & professional audio mixers</li>
+                    <li>Crystal clear sound for all events</li>
+                </ul>
+                <a href="#quote">Rent Audio Equipment →</a>
+            </div>
+        </div>
+        <div class="equip-card">
+            <img src="https://images.unsplash.com/photo-1579684372702-81652e8d63f4" alt="LED Screen">
+            <div class="equip-content">
+                <h3>HD LED Screens</h3>
+                <ul>
+                    <li>Indoor high-brightness LED panels</li>
+                    <li>Custom sizes for small & large events</li>
+                    <li>Vivid display for videos and presentations</li>
+                    <li>Easy setup with full AV integration</li>
+                </ul>
+                <a href="#quote">Rent LED Screens →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="services">
+    <h2 class="section-title">Our Services</h2>
+    <div class="services-grid">
+        <div class="service-card">
+            <h3>Corporate Meetings & Events</h3>
+            <p>Complete AV solutions for conferences, company gatherings, presentations and business events.</p>
+        </div>
+        <div class="service-card">
+            <h3>Weddings & Celebrations</h3>
+            <p>Clear audio for speeches, music and stunning LED displays for wedding visuals and slideshows.</p>
+        </div>
+        <div class="service-card">
+            <h3>Trade Shows & Exhibitions</h3>
+            <p>Eye-catching LED screens and professional audio to make your booth stand out.</p>
+        </div>
+        <div class="service-card">
+            <h3>On-Site Technical Support</h3>
+            <p>Technicians remain on location for full setup, operation and real-time troubleshooting.</p>
+        </div>
+    </div>
+</section>
+
+<section class="service-area" id="area">
+    <h2 class="section-title">Our Service Area</h2>
+    <div class="area-tags">
+        <span class="area-tag">Phoenix, AZ 85027</span>
+        <span class="area-tag">Scottsdale</span>
+        <span class="area-tag">Mesa</span>
+        <span class="area-tag">Tempe</span>
+        <span class="area-tag">Chandler</span>
+        <span class="area-tag">Glendale</span>
+        <span class="area-tag">Paradise Valley</span>
+    </div>
+    <div class="map-box">
+        Your Address: 3309 West Rose Garden Lane, Phoenix, Arizona 85027, USA
+    </div>
+</section>
+
+<section class="about" id="about">
+    <div>
+        <h2>About Golden Leopard, LLC</h2>
+        <p>Based in Phoenix, Arizona, Golden Leopard, LLC is your trusted local provider of professional audio visual equipment rental. We specialize in premium sound systems and high-definition LED screen rentals for all types of events.</p>
+        <p>We deliver reliable equipment, on-time local delivery, and experienced on-site technicians to ensure your event runs perfectly from setup to finish.</p>
+        <p>Transparent pricing, no hidden fees, and flexible rental schedules tailored to your event needs.</p>
+        <div style="margin-top: 2rem;">
+            <a href="#quote" class="btn-primary">Get A Free Quote</a>
+        </div>
+    </div>
+    <div>
+        <img src="https://images.unsplash.com/photo-1555252333-9f7d34811219" alt="AV Rental Service">
+    </div>
+</section>
+
+<section class="quote-section" id="quote">
+    <div class="quote-container">
+        <h2 class="section-title" style="color:white;">Get A Free Quote</h2>
+        <p>Fill out the form below, and we will reply within 24 hours with your personalized AV rental quote.</p>
+        <form class="quote-form" id="quoteForm">
+            <div class="form-group">
+                <label>Your Name *</label>
+                <input type="text" required>
+            </div>
+            <div class="form-group">
+                <label>Your Email *</label>
+                <input type="email" required>
+            </div>
+            <div class="form-group">
+                <label>Your Phone Number *</label>
+                <input type="tel" required>
+            </div>
+            <div class="form-group">
+                <label>Event Date *</label>
+                <input type="date" required>
+            </div>
+            <div class="form-group">
+                <label>Event Type *</label>
+                <select required>
+                    <option value="">Select Event Type</option>
+                    <option>Corporate Meeting</option>
+                    <option>Wedding</option>
+                    <option>Trade Show</option>
+                    <option>Party & Celebration</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Equipment Needed</label>
+                <div class="checkbox-wrap">
+                    <label><input type="checkbox" checked> Audio Systems</label>
+                    <label><input type="checkbox" checked> LED Screens</label>
+                    <label><input type="checkbox"> Wireless Microphones</label>
+                    <label><input type="checkbox"> On-Site Technician</label>
+                    <label><input type="checkbox"> Other</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Additional Notes</label>
+                <textarea rows="4"></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Submit Quote Request</button>
+        </form>
+    </div>
+</section>
+
+<section class="contact-info">
+    <div class="contact-grid">
+        <div>
+            <h3>Phone</h3>
+            <a href="tel:+14805225699">+1 (480) 522-5699</a>
+        </div>
+        <div>
+            <h3>Address</h3>
+            <p>3309 West Rose Garden Lane<br>Phoenix, Arizona 85027<br>USA</p>
+        </div>
+        <div>
+            <h3>Business Hours</h3>
+            <p>Mon - Sun: 8:00 AM - 8:00 PM<br>24/7 Emergency Support Available</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-logo">Golden Leopard, LLC</div>
+    <div class="footer-desc">Professional Audio Visual Rental in Phoenix, AZ</div>
+    <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#equipment">Equipment</a>
+        <a href="#services">Services</a>
+        <a href="#area">Service Area</a>
+        <a href="#about">About Us</a>
+        <a href="#quote">Get A Quote</a>
+    </div>
+    <div class="copyright">&copy; 2026 Golden Leopard, LLC. All Rights Reserved.</div>
+</footer>
+
+<div class="floating-call">
+    <a href="tel:+14805225699">📞</a>
+</div>
+
+<script>
+// Form submit alert
+const form = document.getElementById('quoteForm');
+form.addEventListener('submit', e => {
+    e.preventDefault();
+    alert('Thank you! We will contact you shortly with your rental quote.');
+    form.reset();
+});
+</script>
+
+</body>
+</html>
